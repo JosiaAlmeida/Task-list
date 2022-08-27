@@ -1,0 +1,52 @@
+<template>
+  <div class="mb-4 bg-white bg-opacity-10">
+    <div :class="state ? 'verdadeiro' : 'falso'" class="bg-b">
+      <div class="row ">
+        <div class="col-md-8">
+          <h6>{{ taskinfo }}</h6>
+        </div>
+
+        <div class="col-md-4 mb-2 ">
+          <button @click="$emit('done')" class="space btn btn-success">
+            Feito
+          </button>
+          <button @click="$emit('eliminar')" class="btn btn-danger">
+            Apagar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "outputTask",
+  props: {
+    taskinfo: { type: String, default: "" },
+    state: { type: Boolean, default: false },
+  },
+};
+</script>
+
+<style scoped>
+.bg-b {
+  color: #fff;
+  padding: 10px 5px 0px 20px;
+  border-radius: 2px;
+}
+
+.falso {
+  border-left: 3px solid rgb(143, 4, 4);
+}
+
+.verdadeiro {
+  border-left: 3px solid rgb(0, 255, 13);
+}
+
+.space {
+  margin-right: 5px;
+}
+
+ 
+</style>
