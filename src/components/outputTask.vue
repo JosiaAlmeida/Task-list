@@ -8,10 +8,10 @@
 
         <div class="col-md-4 mb-2 ">
           <button @click="$emit('done')" class="space btn btn-success">
-            Feito
+             <img class="png" src="@/assets/icon2.png" alt=""> 
           </button>
           <button @click="$emit('eliminar')" class="btn btn-danger">
-            Apagar
+            <img class="png" src="@/assets/icon3.png" alt=""> 
           </button>
         </div>
       </div>
@@ -30,6 +30,10 @@ export default {
 </script>
 
 <style scoped>
+
+.png{
+  width: 20px;
+}
 .bg-b {
   color: #fff;
   padding: 10px 5px 0px 20px;

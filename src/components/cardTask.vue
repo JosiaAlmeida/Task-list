@@ -1,22 +1,25 @@
 <template>
-  <div class="bg-main">
+  <div>
     <div class="container">
+      <info-task />
+        <qtTask :qta="index" />
       <div class="row">
         <div class="d-flex justify-content-center">
-          <div class="col-md-4 mt-5">
+          <div class="col-md-4">
             <div>
               <input
                 type="text"
                 class="form-control"
-                placeholder="Qual a tarefa de hoje?"
+                placeholder="Qual é a tarefa de hoje?"
                 autocomplete="off"
                 v-model="mensagem"
                 maxlength="36"
               />
             </div>
           </div>
-          <div class="col-md-2 mt-5">
-            <button @click="addTask" class="btn btn-blue text-white" :disabled ="!this.mensagem">Enviar</button>
+          <div class="col-md-2">
+            <button @click="addTask" class="btn btn-blue text-white" :disabled ="!this.mensagem">
+              <img class="png" src="@/assets/icon1.png" alt=""></button>
           </div>
         </div>
       </div>
@@ -41,15 +44,20 @@
 
 <script>
 import outputTask from "@/components/outputTask.vue";
+import qtTask from "@/components/qtTask.vue";
+import infoTask from "@/components/infoTask.vue";
 export default {
   name: "cardTask",
   components: {
     outputTask,
+    qtTask,
+    infoTask
   },
   data() {
     return {
       task: [],
       mensagem: "",
+      index: 0
     };
   },
 
@@ -57,18 +65,29 @@ export default {
     addTask() {
       this.task.push({ mensagem: this.mensagem, state: false });
       this.mensagem = "";
+      this.index++
     },
 
     deleteTask(index) {
       this.task.splice(index, 1);
+      this.index--
     },
   },
 };
 </script>
 
 <style scoped>
+
+.btn{
+  border: none;
+}
 .btn-blue {
   background: rgb(9, 17, 33);
+}
+
+.png{
+  width: 50%;
+  height: 100%;
 }
 
  

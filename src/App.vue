@@ -8,7 +8,7 @@ export default {};
 
 <style>
 .bg-main {
-  background: #131e3e;
+  background: #0c142a;
   width: 100p0x;
 }
 </style>
