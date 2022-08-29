@@ -5,7 +5,7 @@
         <h4 class="text-white text-center mt-3">TaskList Online</h4>
        </div>
        <div class="col-md-6">
-        <h4 class="text-white text-center mt-3 mb-4">{{qta}} /Task</h4>
+        <h4 class="text-white text-center mt-3 mb-4">{{qta}} / Task </h4>
        </div>
    </div>
   </div>

@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <info-task />
-        <qtTask :qta="index" />
+      <qtTask :qta="index" />
       <div class="row">
         <div class="d-flex justify-content-center">
           <div class="col-md-4">
@@ -18,8 +18,13 @@
             </div>
           </div>
           <div class="col-md-2">
-            <button @click="addTask" class="btn btn-blue text-white" :disabled ="!this.mensagem">
-              <img class="png" src="@/assets/icon1.png" alt=""></button>
+            <button
+              @click="addTask"
+              class="btn btn-blue text-white"
+              :disabled="!this.mensagem"
+            >
+              <img class="png" src="@/assets/icon1.png" alt="" />
+            </button>
           </div>
         </div>
       </div>
@@ -51,13 +56,14 @@ export default {
   components: {
     outputTask,
     qtTask,
-    infoTask
+    infoTask,
   },
   data() {
     return {
       task: [],
       mensagem: "",
-      index: 0
+      index: 0,
+      isEditing: false,
     };
   },
 
@@ -65,30 +71,33 @@ export default {
     addTask() {
       this.task.push({ mensagem: this.mensagem, state: false });
       this.mensagem = "";
-      this.index++
+      this.index++;
     },
 
     deleteTask(index) {
       this.task.splice(index, 1);
-      this.index--
+      this.index--;
     },
+  },
+
+  created() {
+    window.onbeforeunload = function () {
+      return "Are you sure of this action? You will lose all the data from your list.";
+    };
   },
 };
 </script>
 
 <style scoped>
-
-.btn{
+.btn {
   border: none;
 }
 .btn-blue {
   background: rgb(9, 17, 33);
 }
 
-.png{
+.png {
   width: 50%;
   height: 100%;
 }
-
- 
 </style>

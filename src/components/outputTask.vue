@@ -1,12 +1,11 @@
 <template>
   <div class="mb-4 bg-white bg-opacity-10">
-    <div :class="state ? 'verdadeiro' : 'falso'" class="bg-b">
+    <div :class="state ? 'verdadeiro' : 'falso'" class="bg-b bg-whitebg-white">
       <div class="row ">
         <div class="col-md-8">
-          <h6>{{ taskinfo }}</h6>
+          <h5>{{ taskinfo }}</h5>
         </div>
-
-        <div class="col-md-4 mb-2 ">
+        <div class="col-md-4 mb-2 left">
           <button @click="$emit('done')" class="space btn btn-success">
              <img class="png" src="@/assets/icon2.png" alt=""> 
           </button>
@@ -52,5 +51,6 @@ export default {
   margin-right: 5px;
 }
 
+ 
  
 </style>
