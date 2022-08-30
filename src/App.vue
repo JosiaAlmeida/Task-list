@@ -8,10 +8,7 @@ export default {};
 
 <style>
 .bg-main {
-  background: url('@/assets/img.jpg') no-repeat;
-  background-attachment: fixed;
+  /* background: url('@/assets/img.jpg') no-repeat; */
+  background: #000d31;
 }
-
- 
-
 </style>
