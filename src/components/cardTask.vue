@@ -14,6 +14,7 @@
                 autocomplete="off"
                 v-model="mensagem"
                 maxlength="36"
+                max="36"
               />
             </div>
           </div>
