@@ -1,9 +1,9 @@
 <template>
-  <div class="mb-4 bg-white bg-opacity-10">
+  <div class="mb-4 bg-black bg-opacity-25">
     <div :class="state ? 'verdadeiro' : 'falso'" class="bg-b bg-whitebg-white">
       <div class="row ">
         <div class="col-md-8">
-          <h5>{{ taskinfo }}</h5>
+          <h6>{{ taskinfo }}</h6>
         </div>
         <div class="col-md-4 mb-2 left">
           <button @click="$emit('done')" class="space btn btn-success">

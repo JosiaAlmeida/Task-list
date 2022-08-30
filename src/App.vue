@@ -8,7 +8,8 @@ export default {};
 
 <style>
 .bg-main {
-  background: #0c142a;
-  width: 100p0x;
+  background: url('@/assets/img.jpg') no-repeat;
+  /* background: #0c142a;
+  width: 100p0x; */
 }
 </style>
