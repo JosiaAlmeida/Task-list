@@ -11,4 +11,5 @@ export default {};
   /* background: url('@/assets/img.jpg') no-repeat; */
   background: #000d31;
 }
+
 </style>

@@ -1,0 +1,3 @@
+window.onbeforeunload = function () {
+       return "Are you sure of this action? You will lose all the data from your list.";
+     };

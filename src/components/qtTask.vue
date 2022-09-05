@@ -15,7 +15,7 @@
 export default {
   name: 'qtTask',
   props: {
-    qta: { type: String, default: "0"}
+    qta: { type: Number}
   }
 
 }

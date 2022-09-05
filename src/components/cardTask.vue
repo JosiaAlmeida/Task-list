@@ -17,6 +17,8 @@
                 max="36"
               />
             </div>
+
+            
           </div>
           <div class="col-md-2">
             <button
@@ -65,6 +67,7 @@ export default {
       mensagem: "",
       index: 0,
       isEditing: false,
+      
     };
   },
 
@@ -73,19 +76,41 @@ export default {
       this.task.push({ mensagem: this.mensagem, state: false });
       this.mensagem = "";
       this.index++;
+      this.saveTask();
     },
 
     deleteTask(index) {
       this.task.splice(index, 1);
       this.index--;
+      this.saveTask();
     },
+
+    saveTask() {
+      const parsed = JSON.stringify(this.task);
+      localStorage.setItem('task', parsed);
+    }                                              
   },
 
-  created() {
-    window.onbeforeunload = function () {
-      return "Are you sure of this action? You will lose all the data from your list.";
-    };
-  },
+ mounted() {
+    if (localStorage.mensagem) {
+      this.mensagem = localStorage.mensagem;
+    }
+
+    if (localStorage.getItem('task')) {
+      try {
+        this.task = JSON.parse(localStorage.getItem('task'));
+      } catch(e) {
+        localStorage.eliminar('task');
+      }
+    }
+  }, 
+
+
+  watch: {
+    mensagem(newMensagem) {
+      localStorage.mensagem = newMensagem;
+    }
+  }
 };
 </script>
 
