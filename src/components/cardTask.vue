@@ -17,16 +17,13 @@
                 max="36"
               />
             </div>
-
-            
           </div>
           <div class="col-md-2">
             <button
               @click="addTask"
               class="btn btn-blue text-white"
               :disabled="!this.mensagem"
-            >
-              <img class="png" src="@/assets/icon1.png" alt="" />
+            > Adicionar
             </button>
           </div>
         </div>
@@ -67,8 +64,8 @@ export default {
       mensagem: "",
       index: 0,
       isEditing: false,
-      
-    };
+       
+      };
   },
 
   methods: {
@@ -87,30 +84,40 @@ export default {
 
     saveTask() {
       const parsed = JSON.stringify(this.task);
-      localStorage.setItem('task', parsed);
-    }                                              
+      localStorage.setItem("task", parsed);
+    },
   },
 
- mounted() {
+  mounted() {
+    window.onbeforeunload = function () {
+       return "Are you sure of this action? You will lose all the data from your list.";
+     };
+
     if (localStorage.mensagem) {
       this.mensagem = localStorage.mensagem;
     }
+    if (localStorage.index >= 0) {
+      this.index = localStorage.index;
+    }
 
-    if (localStorage.getItem('task')) {
+    if (localStorage.getItem("task")) {
       try {
-        this.task = JSON.parse(localStorage.getItem('task'));
-      } catch(e) {
-        localStorage.eliminar('task');
+        this.task = JSON.parse(localStorage.getItem("task"));
+      } catch (e) {
+        localStorage.eliminar("task");
       }
     }
-  }, 
-
+  },
 
   watch: {
     mensagem(newMensagem) {
       localStorage.mensagem = newMensagem;
+    },
+
+    index(newIndex){
+      localStorage.index = newIndex;
     }
-  }
+  },
 };
 </script>
 

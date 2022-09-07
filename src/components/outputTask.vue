@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-4 mb-2 left">
           <button @click="$emit('done')" class="space btn btn-success">
-             <img class="png" src="@/assets/icon2.png" alt=""> 
+             <img @click="done" class="png" src="@/assets/icon2.png" alt=""> 
           </button>
           <button @click="$emit('eliminar')" class="btn btn-danger">
             <img class="png" src="@/assets/icon3.png" alt=""> 
@@ -21,10 +21,17 @@
 <script>
 export default {
   name: "outputTask",
+  data() {
+    return {
+     
+    }
+  },
   props: {
     taskinfo: { type: String, default: "" },
     state: { type: Boolean, default: false },
-  },
+  }, 
+   
+      
 };
 </script>
 
