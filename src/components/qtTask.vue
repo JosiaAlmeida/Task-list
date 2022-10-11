@@ -1,32 +1,28 @@
 <template>
-  <div class="container">
-   <div class="row">
-       <div class="col-md-6">
-        <h4 class="text-white text-center mt-3">TaskList Online</h4>
-       </div>
-       <div class="col-md-6">
-        <h4 class="text-white text-center mt-3 mb-4">{{qta}} / Tarefas </h4>
-       </div>
-   </div>
+  <div class="d-flex justify-content-between mt-3 mb-4">
+    <div>
+      <h4 class="text-white text-center">TaskList Online</h4>
+    </div>
+    <div>
+      <h4 class="text-white text-center">{{ qta }} / Tarefas</h4>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'qtTask',
+  name: "qtTask",
   props: {
-    qta: { type: String, default: "0"}
-  }
-
-}
+    qta: { type: String, default: "0" },
+  },
+};
 </script>
 
 <style scoped>
- 
- .on{
+.on {
   color: green;
- }
- .off{
+}
+.off {
   color: red;
- }
+}
 </style>

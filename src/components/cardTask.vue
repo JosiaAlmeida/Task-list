@@ -2,46 +2,41 @@
   <div>
     <div class="container">
       <info-task />
-      <qtTask :qta="index" />
-      <div class="row">
-        <div class="d-flex justify-content-center">
-          <div class="col-md-4">
-            <div>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Qual é a tarefa de hoje?"
-                autocomplete="off"
-                v-model="mensagem"
-                maxlength="36"
-                max="36"
-              />
-            </div>
-          </div>
-          <div class="col-md-2">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-12 mx-auto">
+          <qtTask :qta="task.length" />
+        </div>
+        <div class="col-12"></div>
+        <form @submit.prevent.stop="addTask" class="col-md-6 col-sm-12">
+          <div class="d-flex justify-content-center">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Qual é a tarefa de hoje?"
+              autocomplete="off"
+              v-model="mensagem"
+              maxlength="36"
+              max="36"
+            />
             <button
-              @click="addTask"
-              class="btn btn-blue text-white"
+              type="submit"
+              class="btn btn-blue text-white ml-2"
               :disabled="!this.mensagem"
             >
               <img class="png" src="@/assets/icon1.png" alt="" />
             </button>
           </div>
-        </div>
-      </div>
-
-      <div class="row mt-5">
-        <div class="d-flex justify-content-center">
-          <div class="col-md-6">
-            <output-task
-              @done="item.state = true"
-              :state="item.state"
-              @eliminar="deleteTask(i)"
-              :taskinfo="item.mensagem"
-              v-for="(item, i) in task"
-              :key="i"
-            />
-          </div>
+        </form>
+        <div class="col-12"></div>
+        <div class="col-md-6 col-sm-12 mt-5">
+          <output-task
+            @done="item.state = true"
+            :state="item.state"
+            @eliminar="deleteTask(i)"
+            :taskinfo="item.mensagem"
+            v-for="(item, i) in task"
+            :key="i"
+          />
         </div>
       </div>
     </div>
@@ -63,21 +58,19 @@ export default {
     return {
       task: [],
       mensagem: "",
-      index: 0,
       isEditing: false,
     };
   },
 
   methods: {
     addTask() {
-      this.task.push({ mensagem: this.mensagem, state: false });
+      if (this.mensagem)
+        this.task.push({ mensagem: this.mensagem, state: false });
       this.mensagem = "";
-      this.index++;
     },
 
     deleteTask(index) {
       this.task.splice(index, 1);
-      this.index--;
     },
   },
 
@@ -100,5 +93,8 @@ export default {
 .png {
   width: 50%;
   height: 100%;
+}
+.ml-2 {
+  margin-left: 10px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="d-flex justify-content-end mt-1">
+    <div class="d-flex justify-content-end align-items-center mt-1">
       <a target="__blank" href="https://my-portfolio-hernanysimao.vercel.app/"
         ><img class="png" src="@/assets/icon.png" alt="" />
       </a>

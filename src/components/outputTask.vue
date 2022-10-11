@@ -1,16 +1,21 @@
 <template>
   <div class="mb-4 bg-black bg-opacity-25">
     <div :class="state ? 'verdadeiro' : 'falso'" class="bg-b bg-whitebg-white">
-      <div class="row ">
-        <div class="col-md-8">
+      <div class="d-flex justify-content-between">
+        <div class="d-flex align-items-center w-custom">
           <h6>{{ taskinfo }}</h6>
         </div>
-        <div class="col-md-4 mb-2 left">
-          <button @click="$emit('done')" class="space btn btn-success">
-             <img class="png" src="@/assets/icon2.png" alt=""> 
+        <div class="mb-2">
+          <button
+            @click="$emit('done')"
+            class="space btn btn-success"
+            :disabled="state"
+            :class="taskinfo.length > 30 && 'mb-mobile-2'"
+          >
+            <img class="png" src="@/assets/icon2.png" alt="" />
           </button>
-          <button @click="$emit('eliminar')" class="btn btn-danger">
-            <img class="png" src="@/assets/icon3.png" alt=""> 
+          <button @click="$emit('eliminar')" class="space btn btn-danger">
+            <img class="png" src="@/assets/icon3.png" alt="" />
           </button>
         </div>
       </div>
@@ -29,14 +34,13 @@ export default {
 </script>
 
 <style scoped>
-
-.png{
+.png {
   width: 20px;
 }
 .bg-b {
   color: #fff;
   padding: 10px 5px 0px 20px;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 
 .falso {
@@ -50,7 +54,9 @@ export default {
 .space {
   margin-right: 5px;
 }
-
- 
- 
+@media screen and (max-width: 768px) {
+  .mb-mobile-2 {
+    margin-bottom: 5px;
+  }
+}
 </style>
