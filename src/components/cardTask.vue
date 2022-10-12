@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <info-task />
-      <qtTask :qta="index" />
+      <qtTask :qta="index.length" />
       <div class="row">
         <div class="d-flex justify-content-center">
           <div class="col-md-4">
