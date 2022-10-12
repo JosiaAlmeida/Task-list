@@ -23,7 +23,8 @@
               @click="addTask"
               class="btn btn-blue text-white"
               :disabled="!this.mensagem"
-            > Adicionar
+            >
+              Adicionar
             </button>
           </div>
         </div>
@@ -62,23 +63,19 @@ export default {
     return {
       task: [],
       mensagem: "",
-      index: 0,
       isEditing: false,
-       
-      };
+    };
   },
 
   methods: {
     addTask() {
       this.task.push({ mensagem: this.mensagem, state: false });
       this.mensagem = "";
-      this.index++;
       this.saveTask();
     },
 
     deleteTask(index) {
       this.task.splice(index, 1);
-      this.index--;
       this.saveTask();
     },
 
@@ -90,8 +87,8 @@ export default {
 
   mounted() {
     window.onbeforeunload = function () {
-       return "Are you sure of this action? You will lose all the data from your list.";
-     };
+      return "Are you sure of this action? You will lose all the data from your list.";
+    };
 
     if (localStorage.mensagem) {
       this.mensagem = localStorage.mensagem;
@@ -114,9 +111,9 @@ export default {
       localStorage.mensagem = newMensagem;
     },
 
-    index(newIndex){
+    index(newIndex) {
       localStorage.index = newIndex;
-    }
+    },
   },
 };
 </script>
