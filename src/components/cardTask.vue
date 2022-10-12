@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <info-task />
-      <qtTask :qta="index.length" />
+      <qtTask :qta="task.length" />
       <div class="row">
         <div class="d-flex justify-content-center">
           <div class="col-md-4">
@@ -63,7 +63,6 @@ export default {
     return {
       task: [],
       mensagem: "",
-      isEditing: false,
     };
   },
 
@@ -93,9 +92,6 @@ export default {
     if (localStorage.mensagem) {
       this.mensagem = localStorage.mensagem;
     }
-    if (localStorage.index >= 0) {
-      this.index = localStorage.index;
-    }
 
     if (localStorage.getItem("task")) {
       try {
@@ -109,10 +105,6 @@ export default {
   watch: {
     mensagem(newMensagem) {
       localStorage.mensagem = newMensagem;
-    },
-
-    index(newIndex) {
-      localStorage.index = newIndex;
     },
   },
 };
