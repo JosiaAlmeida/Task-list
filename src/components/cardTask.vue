@@ -58,7 +58,6 @@ export default {
     return {
       task: [],
       mensagem: "",
-      isEditing: false,
     };
   },
 
@@ -67,18 +66,18 @@ export default {
       if (this.mensagem)
         this.task.push({ mensagem: this.mensagem, state: false });
       this.mensagem = "";
- 
+      this.saveTask();
     },
 
     deleteTask(index) {
       this.task.splice(index, 1);
- 
+      this.saveTask();
     },
 
-    // saveTask() {
-    //   const parsed = JSON.stringify(this.task);
-    //   localStorage.setItem("task", parsed);
-    // },
+    saveTask() {
+      const parsed = JSON.stringify(this.task);
+      localStorage.setItem("task", parsed);
+    },
   },
 
   mounted() {
@@ -88,9 +87,6 @@ export default {
 
     if (localStorage.mensagem) {
       this.mensagem = localStorage.mensagem;
-    }
-    if (localStorage.index >= 0) {
-      this.index = localStorage.index;
     }
 
     if (localStorage.getItem("task")) {
@@ -105,10 +101,6 @@ export default {
   watch: {
     mensagem(newMensagem) {
       localStorage.mensagem = newMensagem;
-    },
-
-    index(newIndex) {
-      localStorage.index = newIndex;
     },
   },
 };
