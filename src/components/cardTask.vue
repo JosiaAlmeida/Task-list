@@ -71,18 +71,18 @@ export default {
     addTask() {
       this.task.push({ mensagem: this.mensagem, state: false });
       this.mensagem = "";
-      this.saveTask();
+      // this.saveTask();
     },
 
     deleteTask(index) {
       this.task.splice(index, 1);
-      this.saveTask();
+      // this.saveTask();
     },
 
-    saveTask() {
-      const parsed = JSON.stringify(this.task);
-      localStorage.setItem("task", parsed);
-    },
+    // saveTask() {
+    //   const parsed = JSON.stringify(this.task);
+    //   localStorage.setItem("task", parsed);
+    // },
   },
 
   mounted() {
