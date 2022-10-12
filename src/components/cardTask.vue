@@ -23,7 +23,7 @@
               class="btn btn-blue text-white ml-2"
               :disabled="!this.mensagem"
             >
-              <img class="png" src="@/assets/icon1.png" alt="" />
+              Adicionar
             </button>
           </div>
         </form>
@@ -67,17 +67,49 @@ export default {
       if (this.mensagem)
         this.task.push({ mensagem: this.mensagem, state: false });
       this.mensagem = "";
+ 
     },
 
     deleteTask(index) {
       this.task.splice(index, 1);
+ 
     },
+
+    // saveTask() {
+    //   const parsed = JSON.stringify(this.task);
+    //   localStorage.setItem("task", parsed);
+    // },
   },
 
-  created() {
+  mounted() {
     window.onbeforeunload = function () {
       return "Are you sure of this action? You will lose all the data from your list.";
     };
+
+    if (localStorage.mensagem) {
+      this.mensagem = localStorage.mensagem;
+    }
+    if (localStorage.index >= 0) {
+      this.index = localStorage.index;
+    }
+
+    if (localStorage.getItem("task")) {
+      try {
+        this.task = JSON.parse(localStorage.getItem("task"));
+      } catch (e) {
+        localStorage.eliminar("task");
+      }
+    }
+  },
+
+  watch: {
+    mensagem(newMensagem) {
+      localStorage.mensagem = newMensagem;
+    },
+
+    index(newIndex) {
+      localStorage.index = newIndex;
+    },
   },
 };
 </script>

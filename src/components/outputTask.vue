@@ -5,14 +5,7 @@
         <div class="d-flex align-items-center w-custom">
           <h6>{{ taskinfo }}</h6>
         </div>
-        <div class="mb-2">
-          <button
-            @click="$emit('done')"
-            class="space btn btn-success"
-            :disabled="state"
-            :class="taskinfo.length > 30 && 'mb-mobile-2'"
-          >
-            <img class="png" src="@/assets/icon2.png" alt="" />
+
           </button>
           <button @click="$emit('eliminar')" class="space btn btn-danger">
             <img class="png" src="@/assets/icon3.png" alt="" />
@@ -26,10 +19,17 @@
 <script>
 export default {
   name: "outputTask",
+  data() {
+    return {
+     
+    }
+  },
   props: {
     taskinfo: { type: String, default: "" },
     state: { type: Boolean, default: false },
-  },
+  }, 
+   
+      
 };
 </script>
 

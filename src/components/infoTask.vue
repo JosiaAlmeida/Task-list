@@ -5,8 +5,7 @@
         ><img class="png" src="@/assets/icon.png" alt="" />
       </a>
       <div v-show="view" class="alert alert-dark" role="alert">
-        A sua lista é temporária, atenção não actualize a página antes de
-        terminar a lista.
+        O estado das suas tarefas são temporários, não actualize a página.
       </div>
       <button @click="viewTask" class="btn">
         <img src="@/assets/icon4.png" alt="" />
